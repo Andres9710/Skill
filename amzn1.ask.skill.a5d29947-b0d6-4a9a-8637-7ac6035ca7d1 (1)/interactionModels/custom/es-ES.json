@@ -1,0 +1,582 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "asistente de gerente",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "MenuIntent",
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "{nombre}",
+                "soy {nombre}",
+                "mi nombre es {nombre}",
+                "me llamo {nombre}",
+                "la gente me dice {nombre}"
+              ]
+            }
+          ],
+          "samples": [
+            "hola soy {nombre}",
+            "{nombre}",
+            "Me llamo {nombre}",
+            "soy {nombre}",
+            "mi nombre es {nombre}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "RegistrarContactoIntent",
+          "slots": [
+            {
+              "name": "contacto",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "el nombre es {contacto}",
+                "es {contacto}"
+              ]
+            },
+            {
+              "name": "telefono",
+              "type": "AMAZON.PhoneNumber",
+              "samples": [
+                "su numero es {telefono}",
+                "es el {telefono}"
+              ]
+            },
+            {
+              "name": "relacion",
+              "type": "relacion",
+              "samples": [
+                "la relacion con la empresa es {relacion}",
+                "su relacion es {relacion}",
+                "es {relacion}",
+                "el es {relacion}"
+              ]
+            }
+          ],
+          "samples": [
+            "crea un contacto con el nombre {contacto} el numero de celular {telefono} y su relacion con la empresa es {relacion}",
+            "agrega un contacto de nombre {contacto} y de numero {telefono}",
+            "crear un contacto de nombre {contacto}",
+            "crea un contacto",
+            "graba un contacto",
+            "Registra un contacto",
+            "Registrar Contacto"
+          ]
+        },
+        {
+          "name": "RegistrarCitaIntent",
+          "slots": [
+            {
+              "name": "day",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{day}",
+                "el {day}",
+                "el dia {day}"
+              ]
+            },
+            {
+              "name": "month",
+              "type": "AMAZON.Month",
+              "samples": [
+                "{month}",
+                "mes de {month}",
+                "en {month}"
+              ]
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "samples": [
+                "del {year}",
+                "{year}"
+              ]
+            },
+            {
+              "name": "cliente",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "con {cliente}",
+                "va a ser {cliente}",
+                "me voy a reunir con {cliente}",
+                "es {cliente}"
+              ]
+            },
+            {
+              "name": "direccion",
+              "type": "AMAZON.StreetName",
+              "samples": [
+                "va a ser en {direccion}",
+                "en {direccion}"
+              ]
+            },
+            {
+              "name": "titulo_cita",
+              "type": "nombre_Cita",
+              "samples": [
+                "con el nombre {titulo_cita}"
+              ]
+            },
+            {
+              "name": "tipo_cita",
+              "type": "tipo_reunion",
+              "samples": [
+                "{tipo_cita}",
+                "es de tipo {tipo_cita}",
+                "va a ser {tipo_cita}"
+              ]
+            }
+          ],
+          "samples": [
+            "crea una cita par el dia {day} de {month} del {year} con {cliente} en {direccion}",
+            "agenda una cita para el {day} de {month} del {year}",
+            "agenda una cita para el {day} de {month}",
+            "reserva una cita para el {day}",
+            "reservame una fecha",
+            "agéndame una cita",
+            "crea una cita",
+            "crear una cita",
+            "agendar cita"
+          ]
+        },
+        {
+          "name": "DecirCitaIntent",
+          "slots": [],
+          "samples": [
+            "dame detalles de la siguiente cita",
+            "dime la siguiente cita que tengo",
+            "Cuando es mi siguiente cita"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "cliente"
+              }
+            },
+            {
+              "name": {
+                "value": "vendedor"
+              }
+            },
+            {
+              "name": {
+                "value": "proveedor"
+              }
+            },
+            {
+              "name": {
+                "value": "empleado"
+              }
+            }
+          ],
+          "name": "relacion"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "reunion de negocios"
+              }
+            }
+          ],
+          "name": "nombre_Cita"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "social"
+              }
+            },
+            {
+              "name": {
+                "value": "empresarial"
+              }
+            }
+          ],
+          "name": "tipo_reunion"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "RegistrarContactoIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "contacto",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.224381191133.859122335448"
+              }
+            },
+            {
+              "name": "telefono",
+              "type": "AMAZON.PhoneNumber",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.254645986456.1332090675974"
+              }
+            },
+            {
+              "name": "relacion",
+              "type": "relacion",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1062897965882.691813030857"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1062897965882.691813030857.221579465067"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MenuIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "nombre",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.328129440866.567907994460"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegistrarCitaIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "day",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.615673040598.1314005829021"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.615673040598.1314005829021.402273469171",
+                  "value": "1"
+                }
+              ]
+            },
+            {
+              "name": "month",
+              "type": "AMAZON.Month",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.615673040598.1327635136669"
+              }
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.615673040598.1383618923"
+              }
+            },
+            {
+              "name": "cliente",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.799845290499.1576254954112"
+              }
+            },
+            {
+              "name": "direccion",
+              "type": "AMAZON.StreetName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.799845290499.785368977594"
+              }
+            },
+            {
+              "name": "titulo_cita",
+              "type": "nombre_Cita",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.328218117639.1588774937429"
+              }
+            },
+            {
+              "name": "tipo_cita",
+              "type": "tipo_reunion",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.328218117639.520008122199"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.328218117639.520008122199.258454767023"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.328129440866.567907994460",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "para seguir, necesito saber como te llamas"
+          },
+          {
+            "type": "PlainText",
+            "value": "debes decirme tu nombre"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.328129440866.567907994460",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "has dicho {nombre}"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.910008169343",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "has dicho {nombre}"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.224381191133.859122335448",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿cual es el nombre del contacto?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.615673040598.1314005829021",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "okey, para que día"
+          },
+          {
+            "type": "PlainText",
+            "value": "en que día será la cita?"
+          },
+          {
+            "type": "PlainText",
+            "value": "que día quieres que agente la cita?"
+          },
+          {
+            "type": "PlainText",
+            "value": "listo, agendaré una cita pero para qué día?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.615673040598.1327635136669",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "okey, el {day} de qué mes?"
+          },
+          {
+            "type": "PlainText",
+            "value": "el dia {day} pero de qué mes?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.615673040598.1383618923",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "en que añó?"
+          },
+          {
+            "type": "PlainText",
+            "value": "la cita está para el día {day} del mes {month} pero de qué año?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.615673040598.1314005829021.402273469171",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "solo numero entre uno y treinta y uno"
+          },
+          {
+            "type": "PlainText",
+            "value": "dime un dia que esté entre uno y treinta y uno"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.615673040598.641530162440.228451016246",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "que tal si no eliges algo tan tarde o tan temprano, así podrás alistar con calma"
+          },
+          {
+            "type": "PlainText",
+            "value": "No creo que tranajes tan temprano o tan tarde, recuerda que dormir tambien es bueno"
+          },
+          {
+            "type": "PlainText",
+            "value": "elige una hora entre las ocho A.M y las ocho P.M"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.619966915169",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "has dicho {contacto} ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.799845290499.1576254954112",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "quien es la persona que va a reunirse contigo?"
+          },
+          {
+            "type": "PlainText",
+            "value": "con quien te quieres reunir?"
+          },
+          {
+            "type": "PlainText",
+            "value": "con quien vas a tener la cita?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.799845290499.785368977594",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "donde vas a tener la cita?"
+          },
+          {
+            "type": "PlainText",
+            "value": "en donde te vas a reunir con {cliente}"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.254645986456.1332090675974",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "okey el contacto es {contacto} , pero cual es su número de teléfono?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1062897965882.691813030857",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "cual es la relación de {contacto} con la empresa?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1062897965882.691813030857.221579465067",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "debes responder con las opciones Empleado, Cliente, Vendedor, Proveedor segun le conrresponda a {contacto}"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.328218117639.520008122199",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "que tipo de reunion vas a tener?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.328218117639.520008122199.258454767023",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "los tipos de reunión son empresarial o social, son las únicas opciones"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.328218117639.1588774937429",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "con qué nombre deseas guardar la cita?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "27"
+}
